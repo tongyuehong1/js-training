@@ -27,3 +27,7 @@ console.log(arr.every(function(i){
 console.log(arr.some(function(i){
     return i > 2;
 }))
+
+console.log(arr.forEach(function(i){
+    return i + 4;
+}))
