@@ -8,13 +8,15 @@ function open(dev){
     var index = - 1;
     index = device.indexOf(dev);
     if(index <0){
-        console.log('dev is not exit');
+        console.log(`${dev} is not exit`);
     } 
+    else{
     driver[index].open();
     return index;
+    }
 }
 
-function read(fd){
+function read(fd){ 
     return driver[fd].read();
 }
 
@@ -63,9 +65,13 @@ var driver = [{
 }];
 
 var fd = open('/dev/display');
+if(fd >= 0){
 write(fd, 'www');
 close(fd);
+}
 
-var fd = open('/dev/console');
+var fd = open('/dev/consol');
+if(fd >= 0){
 write(fd, 'hello');
 close(fd);
+}
