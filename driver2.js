@@ -10,7 +10,6 @@ function open(dev){
             driver[n].open();
             return n;
         }
-    return undefined;
     }
 }
 
