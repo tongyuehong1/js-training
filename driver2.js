@@ -5,12 +5,13 @@
 var device =['/dev/console', '/dev/display'];
 
 function open(dev){
-    for(n = 0; n <= driver.length;n++){
+    for(n = 0; n < driver.length;n++){
         if(driver[n].type === dev){
             driver[n].open();
             return n;
         }
     }
+    return -1;
 }
 
 function read(fd){ 
@@ -62,9 +63,13 @@ var driver = [{
 }];
 
 var fd = open('/dev/display');
+if(fd >= 0){
 write(fd, 'www');
 close(fd);
+}
 
-var fd = open('/dev/console');
+var fd = open('/dev/consol');
+if(fd >= 0){
 write(fd, 'hello');
 close(fd);
+}
