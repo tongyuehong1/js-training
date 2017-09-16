@@ -17,4 +17,8 @@ var o = Object.create(null, {
     }
 });
 console.log(Object.entries(o));
-console.log(o.bar);
+//console.log(o.bar);
+
+console.log(Object.getOwnPropertyNames(o)); 
+console.log(Object.keys(o));  //做个比较
+console.log(Object.values(o));
