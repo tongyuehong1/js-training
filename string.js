@@ -2,7 +2,7 @@
  * 2017-09-17 Tong Yuehong
  */
 
-var str = '   hello,  world   ';
+var str = '   hello,  world';
 //var str = '';
 
 console.log('*********charAt****************');
@@ -98,8 +98,8 @@ console.log(str.startsWith('h', -1));
 console.log(str.startsWith('e', 1));
 
 console.log('************substr*************');
-console.log(str.substr(2, 6));
-console.log(str.substr(-1, 2));
+console.log(str.substr(5, 7));
+console.log(str.substr(-1, 2)); // 倒数第一个往后数两个  只剩倒数第一个这一个数，所以只输出d
 
 console.log('************trim*************');
 console.log(str.trim());
