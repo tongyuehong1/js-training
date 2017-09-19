@@ -2,33 +2,33 @@
  * 2017-09-17 Tong Yuehong
  */
 
-var str = '   hello,  world';
+var str = 'hello,  world';
 //var str = '';
 
 console.log('*********charAt****************');
 
 console.log(`The character at index 0 is ${str.charAt(0)}`);
-console.log(`The character at index 0 is ${str.charAt(-2)}`);
-console.log(`The character at index 0 is ${str.charAt(20)}`);
-console.log(`The character at index 0 is ${str.charAt(5)}`);
+console.log(`The character at index -2 is ${str.charAt(-2)}`);
+console.log(`The character at index 20 is ${str.charAt(20)}`);
+console.log(`The character at index 5 is ${str.charAt(5)}`);
 
-console.log('*********concat****************');
+console.log('*********concat****************');// 拼接
 console.log(str.concat(', welcome'));
 console.log(str.concat(',aaa', ',bbb'))
 
-console.log('************includes*************');
+console.log('************includes*************');// 返回值是true或false
 console.log(str.includes('hello'));
-console.log(str.includes('hello', 2));
+console.log(str.includes('hello', 2)); // 后面的数字为从第几个字符开始寻找
 console.log(str.includes('hello', 20));
-console.log(str.includes('hello', -1));
-console.log(str.includes('', 1));
+console.log(str.includes('hello', -1));// 负数时，默认从0开始
+console.log(str.includes('', 1));// 空字符串始终为true
 console.log(str.includes('', 20));
 console.log(str.includes('', -20));
 
-console.log('***********endsWith**************');
+console.log('***********endsWith**************');  
 console.log(str.endsWith('world'));
 console.log(str.endsWith('hello'));
-console.log(str.endsWith('o', 5));
+console.log(str.endsWith('o', 5));// 数字是指前5个
 console.log(str.endsWith('hello', -5));
 console.log(str.endsWith('world', 20));
 console.log(str.endsWith(''));
@@ -36,13 +36,13 @@ console.log(str.endsWith('', -1));
 console.log(str.endsWith('', 3));
 console.log(str.endsWith('',20));
 
-console.log('*********indexOf****************');
+console.log('*********indexOf****************');// 查询所写内容在字符串中在第一次在第几位出现，返回值为数字
 console.log(str.indexOf('world'));
-console.log(str.indexOf('off'));
-console.log(str.indexOf('world', 8));
+console.log(str.indexOf('off'));// 如果不包含，则返回-1；
+console.log(str.indexOf('world', 9));//数字为从第几位开始找
 console.log(str.indexOf('world', 4));
-console.log(str.indexOf('world', -1));
-console.log(str.indexOf('', -1));
+console.log(str.indexOf('world', -1));//即从0开始
+console.log(str.indexOf('w', -1));
 console.log(str.indexOf(''));
 console.log(str.indexOf('', 20));
 

@@ -17,3 +17,33 @@ console.log(n);
 var m = div(4);
 var n = m(1);
 console.log(n);
+
+
+var b = 1;
+var con = function(){
+    var a = {
+        age: b++
+    };
+    return a;
+}
+
+console.log(con(), con(), con(), con(), b);
+
+
+
+var son = function(a) {
+    var origin = 1;
+
+    return function() {
+        var obj = {
+            age: origin
+        };
+
+        origin = origin + a;
+
+        return obj;
+    }
+}
+
+var fun = son(6);
+console.log(fun(), fun(), fun(), fun());

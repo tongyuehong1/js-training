@@ -16,6 +16,7 @@ console.log(Object.getOwnPropertyNames(a));
 
 
 Object.defineProperty(a, 'len',{
+    enumerable: true,
     configurable: true,
     get: function() { return this.one.length; },
 });

@@ -14,3 +14,14 @@ var m = add.bind(a);
 console.log(m(), a);
 
 console.log(add.call(a),a);
+
+function sub(x) {
+    this.age = 2;
+    return this.age + x
+}
+console.log(sub.apply(a, [10]), a);
+
+var k = sub.bind(a,10);
+console.log(k(), a);
+
+console.log(sub.call(a,10), a)

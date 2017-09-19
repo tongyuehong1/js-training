@@ -12,7 +12,7 @@ var b = a();
 var c = b(2, 3);
 console.log(c);
 
-//比较d，b虽然都等于a（），但不同，在内存中指向两个function（x），修改b并不影响d
+// 比较d，b虽然都等于a（），但不同，在内存中指向两个function（x），修改b并不影响d
 var d = a();
 b.spec = 1;
 
