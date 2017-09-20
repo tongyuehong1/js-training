@@ -14,7 +14,7 @@ a.three = function(){
 }
 console.log(Object.getOwnPropertyNames(a)); 
 
-
+// len属性的值随one.length的变化而变化
 Object.defineProperty(a, 'len',{
     enumerable: true,
     configurable: true,
