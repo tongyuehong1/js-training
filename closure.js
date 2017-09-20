@@ -39,7 +39,7 @@ var son = function(a) {
             age: origin
         };
 
-        origin = origin + a;
+        origin = origin + a; 
 
         return obj;
     }
