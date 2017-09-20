@@ -39,9 +39,9 @@ console.log(str.endsWith('',20));
 console.log('*********indexOf****************');// 查询所写内容在字符串中在第一次在第几位出现，返回值为数字
 console.log(str.indexOf('world'));
 console.log(str.indexOf('off'));// 如果不包含，则返回-1；
-console.log(str.indexOf('world', 9));//数字为从第几位开始找
+console.log(str.indexOf('world', 9));// 数字为从第几位开始找
 console.log(str.indexOf('world', 4));
-console.log(str.indexOf('world', -1));//即从0开始
+console.log(str.indexOf('world', -1));// 即从0开始
 console.log(str.indexOf('w', -1));
 console.log(str.indexOf(''));
 console.log(str.indexOf('', 20));
