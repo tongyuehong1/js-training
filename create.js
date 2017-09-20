@@ -28,13 +28,45 @@ console.log(a.sex);
 
 console.log(a.age, b.age);
 
+console.log('********************Arr**********************')
 var m = [1, 2, 3];
-var n = 'name';
-console.log(typeof m, typeof n)
-console.log(m.__proto__, n.__proto__);
+console.log(typeof m);
+console.log(m.__proto__);
+console.log(m.__proto__ === Object.prototype)
 console.log(m.__proto__.__proto__ === Object.prototype);
 console.log(m.__proto__ === Array.prototype);
+console.log(Array.__proto__ === Function.prototype);
+
+console.log('******************String***********************')
+var n = 'name';
+console.log(typeof n);
+console.log(n.__proto__);
+console.log(n.__proto__=== Object.prototype);
 console.log(n.__proto__.__proto__ === Object.prototype);
 console.log(n.__proto__ === String.prototype);
-console.log(`Object.__proto -> ${Object.__proto__}`)
-console.log(`String.__proto -> ${String.__proto__}`)
+console.log(String.__proto__ === Function.prototype);
+
+console.log('******************Num***********************')
+var s = 1;
+console.log(typeof s);
+console.log(s.__proto__ === Object.prototype);
+console.log(s.__proto__.__proto__ === Object.prototype);
+console.log(s.__proto__ === Number.prototype);
+console.log(Number.__proto__ === Function.prototype);
+
+console.log('******************Boolean***********************')
+var k = true;
+console.log(typeof k);
+console.log(k.__proto__ === Object.prototype);
+console.log(k.__proto__.__proto__ === Object.prototype);
+console.log(k.__proto__ === Boolean.prototype)
+console.log(Boolean.__proto__ === Function.prototype);
+
+
+console.log('**********************constructor**************************')
+console.log(`Function.prototype.constructor === Function -> ${Function.prototype.constructor  === Function}`);
+console.log(`Object.prototype.constructor === Object-> ${Object.prototype.constructor  === Object}`);
+console.log(`Array.prototype.constructor ===Array -> ${Array.prototype.constructor  === Array}`);
+console.log(`Boolean.prototype.constructor === Boolean -> ${Boolean.prototype.constructor === Boolean}`);
+console.log(`String.prototype.constructor === String-> ${String.prototype.constructor === String}`);
+console.log(`Number.prototype.constructor === Number-> ${Number.prototype.constructor === Number}`)
