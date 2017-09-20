@@ -29,7 +29,7 @@ var obj = {
     a : 1,
     add : function(x) {
         this.b = 2;
-        this.add = undefined;
+        this.add = undefined;// cs：ip直接指向代码段，执行代码第一次时this.a还存在，然后再次执行时add指向undefind，所以没有会显示出错
         return this.a + x;
     }
 };
