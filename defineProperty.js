@@ -5,13 +5,13 @@
 var o = Object.create(null, {
     foo: {
         enumerable:true,
-        waitable: true,
+        writable: true,
         configurable: true,
         value: 10
     },
     bar: {
         enumerable:true,
-        waitable: true,
+        writable: true,
         configurable: true,
         value: 100
     }
@@ -25,7 +25,7 @@ var n = Object.defineProperty(o, 'aa', {
     configurable: true,
     value: 100000
 });
-o.aa = 10;
+//o.aa = 10;
 console.log(n, o);
 
 var s = Object.defineProperty(o, 'foo', {
@@ -45,7 +45,7 @@ Object.defineProperty(arr, '4', {
     value: 128
 } )
 console.log(arr);
-
+// 如果将arr.length的value值改成比它原本小的可以更改，但改成比它大的就不可更改，如下例
 Object.defineProperty(arr, 'length', {
     enumerable:true,
     writable: true,
@@ -55,10 +55,10 @@ Object.defineProperty(arr, 'length', {
 console.log(arr);
 
 // 不是所有的属性都可修改
-Object.defineProperty(arr, 'length', {
+/*Object.defineProperty(arr, 'length', {
     enumerable:true,
     writable: true,
     configurable: true,
     value: 6
 } )
-console.log(arr);
+console.log(arr);*/
