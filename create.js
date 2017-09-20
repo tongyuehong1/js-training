@@ -36,3 +36,5 @@ console.log(m.__proto__.__proto__ === Object.prototype);
 console.log(m.__proto__ === Array.prototype);
 console.log(n.__proto__.__proto__ === Object.prototype);
 console.log(n.__proto__ === String.prototype);
+console.log(`Object.__proto -> ${Object.__proto__}`)
+console.log(`String.__proto -> ${String.__proto__}`)
