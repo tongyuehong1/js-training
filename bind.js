@@ -15,6 +15,7 @@ console.log(m(), a);
 
 console.log(add.call(a),a);
 
+// 带参数的
 function sub(x) {
     this.age = 2;
     return this.age + x
