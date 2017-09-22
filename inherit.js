@@ -19,7 +19,7 @@ cat.species = 'bird';
 console.log(anmial.prototype.species);
 */
 
-console.log('*******************block****************************');
+console.log('*******************black****************************');// 不够完善，例子如下
 function animal(){
 
 }
@@ -76,3 +76,29 @@ function object(o) {
     return new F();
   }
   
+console.log('******************浅拷贝******************');// 拷贝了p的内容，指针指向地址与p指向地址为同一个内存小格
+function extendCopy(p) {
+    var c = {};
+  
+    for (var i in p) {
+      c[i] = p[i];
+    }
+  
+    c.uber = p;
+    return c;
+}
+
+console.log('*******************深拷贝*********************');//拷贝时拷贝了内容，同时指向了一个新的内存小格，互不影响
+function deepCopy(p, c) {
+    var c = c || {};
+  
+    for (var i in p) {
+      if (typeof p[i] === 'object') {
+        c[i] = (p[i].constructor === Array) ? [] : {};
+        deepCopy(p[i], c[i]);
+      } else {
+        c[i] = p[i];
+      }
+    }
+    return c;
+  }
