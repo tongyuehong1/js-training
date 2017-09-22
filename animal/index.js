@@ -19,4 +19,5 @@ a.can();
 
 var b = new woodpecker();
 b.can();
+b.eat();
 
