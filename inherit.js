@@ -67,7 +67,8 @@ function extend2(Child, Parent) {
       c[i] = p[i];
     }
     c.uber = p;
-  }
+}
+
 console.log('****************************object方法********************************');
 function object(o) {
     function F() {}
