@@ -16,6 +16,7 @@ var a = Object.create(person, {
     }  
 });
 
+console.log(a)
 console.log(a.__proto__);
 console.log(a.getage());
 
