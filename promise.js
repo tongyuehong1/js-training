@@ -30,5 +30,20 @@ asyncFunction().then(function (value) {
 }).then(function (v) {
   console.log(`4-${v}`);
 })
-
 console.log('asdfg');
+
+
+
+
+new Promise(function(resolve, reject){
+  reject('true');
+  Window.setTimeout(function(){
+    resolve('aaa');
+  }, 0);
+}).then(function(){  
+  console.log(2);
+},function(){
+  console.log(3);
+});
+console.log(4);
+// 注意then的参数（fulfilled, rejected）三种状态：pending, fulfilled, rejected，只能由 pending 转变为 fulfilled 或 rejected
