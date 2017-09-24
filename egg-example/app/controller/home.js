@@ -6,7 +6,8 @@
 module.exports = app => {
   class HomeController extends app.Controller {
     * index() {
-      this.ctx.body = yield this.service.home.find();
+      const s = this.ctx.helper.foo(this.ctx.request.query.a);
+      this.ctx.body = s + this.ctx.helper.foo(this.ctx.request.query.b);
     }
     * index1() {
       this.ctx.body = 'hi, 123';
@@ -27,7 +28,25 @@ module.exports = app => {
     * lodash() {
       const c = yield this.service.lodash.chunk();
       const k = yield this.service.lodash.compact();
-      this.ctx.body = `chunk ${c}  compact ${k} `;
+      const f = yield this.service.lodash.findIndex();
+      this.ctx.body = `chunk ${c}  compact ${k}  findIndex ${f} `;
+    }
+    * student() {
+      const t = yield this.service.student.student();
+      this.ctx.body = t;
+    }
+    * home() {
+      const result = yield this.ctx.curl('https://registry.npm.taobao.org/egg/latest', {
+        // 自动解析 JSON response
+        dataType: 'json',
+        // 3 秒超时
+        timeout: 3000,
+      });
+      this.ctx.body = {
+        status: result.status,
+        headers: result.headers,
+        package: result.data,
+      };
     }
   }
   return HomeController;

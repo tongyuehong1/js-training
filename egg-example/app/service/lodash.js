@@ -13,6 +13,14 @@ module.exports = app => {
       const k = [ 1, 2, 3, 4, 5, 0, false ];
       return _.compact(k);
     }
+    * findIndex() {
+      const users = [
+        { user: 'barney', active: false },
+        { user: 'fred', active: false },
+        { user: 'pebbles', active: true },
+      ];
+      return _.findIndex(users, function(o) { return o.user === 'barney'; });
+    }
   }
   return Lodash;
 };
