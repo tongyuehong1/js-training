@@ -41,6 +41,7 @@ module.exports = app => {
         dataType: 'json',
         // 3 秒超时
         timeout: 3000,
+        
       });
       this.ctx.body = {
         status: result.status,

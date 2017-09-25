@@ -15,4 +15,8 @@ module.exports = app => {
   app.get('/countBy', 'lodash.countBy');
   app.get('/every', 'lodash.every');
   app.get('/filter', 'lodash.filter');
+  app.post('/create', 'test.create');
+  app.post('/get', 'test.get');
+  app.post('/delete', 'test.delete');
+  app.post('/update', 'test.update');
 };
