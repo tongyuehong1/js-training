@@ -130,3 +130,98 @@ console.log(_.reverse([1, 3, 2]))
 console.log('******************************slice**********************************');// 前闭后开
 console.log(_.slice([1, 2, 3, 4, 5 ,6], 1, 3));
 
+console.log('******************************sortedIndex**********************************');
+console.log(_.sortedIndex([1, 2], 3));
+console.log(_.sortedIndex([1, 2], -1));
+
+console.log('**************************sortedIndexBy***********************************');
+var objects = [{'y': 3}, { 'x': 4 }, { 'x': 5 },{'y': 5}];
+console.log(_.sortedIndexBy(objects, { 'y': 4 }, function(o) { return o.y; }));
+console.log(_.sortedIndexBy(objects, { 'x': 6 }, function(o) { return o.x; }));
+console.log(_.sortedIndexBy(objects, { 'x': 4 }, function(o) { return o.x; })); // 与sortedLastIndexBy结果比较
+
+
+console.log('**************************sortedIndexOf***********************************');// 注意二分查找时查找的是大于还是小于（这个是小于）；
+console.log(_.sortedIndexOf([4, 5, 5, 5, 6], 5));
+console.log(_.sortedIndexOf([3, 4, 5, 6, 7, 8, 9], 4));
+
+console.log('******************************sortedLastIndex*******************************************');
+console.log(_.sortedLastIndex([4, 5, 5, 6], 5));
+
+console.log('*****************************sortedLastIndexOf****************************************');
+console.log(_.sortedLastIndexOf([1, 2, 3, 4, 5, 6], 2));
+
+console.log('*********************************sortedLastIndexBy*******************************************');
+console.log(_.sortedLastIndexBy(objects, { 'x': 4 }, function(o) { return o.x; }));
+
+console.log('*********************************sortedLastIndexBy*******************************************');
+console.log(_.sortedLastIndexOf([4, 5, 5, 5, 6], 5));
+
+console.log('***************************tail**********************************');
+console.log(_.tail([2, 3, 4, 5]));
+
+console.log('***************************take**********************************');
+console.log(_.take([1, 2, 3, 4, 5], 4));
+
+console.log('***************************takeRight********************************');
+console.log(_.takeRight([1, 2, 3, 4, 5], 3));
+
+console.log('***************************takeRightWhile********************************');
+var u = [
+  { 'user': 'barney',  'active': true },
+  { 'user': 'fred',    'active': false },
+  { 'user': 'pebbles', 'active': false }
+];
+console.log(_.takeRightWhile(u, function(o) { return !o.active; }));
+console.log(_.takeRightWhile(u, ['active', false]));
+
+console.log('***************************takeWhile********************************');
+console.log(_.takeWhile(users, function(o) { return o.active; }));
+
+console.log('***************************union********************************');
+console.log(_.union([2, 1, 3], [1, 2, 4, 5]));
+
+console.log('***************************unionBy********************************');
+console.log(_.unionBy([2.1], [1.2, 2.3], Math.floor));
+
+console.log('***************************unionWith********************************');
+var objects = [{ 'x': 1, 'y': 3 }, { 'x': 1, 'y': 4 }];
+var others = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
+console.log(_.unionWith(objects, others, _.isEqual));
+
+console.log('***************************uniq********************************');
+console.log(_.uniq([2, 1, 3, 2, 3, 5]));
+
+console.log('***************************uniqBy********************************');
+console.log(_.uniqBy([1.2, 2.1, 1.3], Math.floor));
+
+console.log('***************************uniqWith********************************');
+var obje = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }, { 'x': 1, 'y': 2 }];
+console.log(_.uniqWith(obje, _.isEqual));
+
+console.log('**************************unzip,,,zip*********************************');
+var zipped = _.zip(['a', 'b'], [1, 2], [true, false]);
+console.log(zipped);
+console.log(_.unzip(zipped));
+
+console.log('**************************unzipwith*********************************');
+var zipped = _.zip([1, 2], [10, 20], [100, 200]);
+console.log(_.unzipWith(zipped, _.add));
+
+console.log('**************************xor*********************************');
+console.log(_.xor([2, 1, 3], [2, 3, 4]));
+
+console.log('**************************zipObject*********************************');
+console.log(_.zipObject(['a', 'b'], [1, 2])); // 前面是属性标识符，后面是对应值
+
+console.log('**************************zipObjectDeep*********************************');
+console.log(_.zipObjectDeep(['a.b[0].c', 'a.b[1].d'], [1, 2]));
+
+console.log('**************************zipWith*********************************');
+console.log(_.zipWith([1, 2], [10, 20], [100, 200], function(a, b, c) {
+  return a + b + c;
+}));
+
+console.log('********collection************');
+console.log(_.countBy([6.1, 4.2, 6.3], Math.floor));
+console.log(_.countBy(['one', 'two', 'three'], 'length'));

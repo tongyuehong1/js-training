@@ -3,15 +3,16 @@
  */
 
 function animal(){
-    
-};
-animal.prototype = {
-    live : true,
-    sex : 'male',
-    eat : function(){
-        console.log('animal.eat') ;
+    animal.prototype = {
+        live : true,
+        sex : 'male',
+        eat : function(){
+            console.log('animal.eat') ;
+        }
     }
-}
+};
+animal();
+
 
 function bird(){
 
@@ -30,7 +31,7 @@ mammal.prototype = {
     birth : function(){
         console.log('mammal.birth');
     }
-}
+} 
 mammal.prototype.__proto__ = animal.prototype;
 
 function woodpecker(){
@@ -59,6 +60,9 @@ var b = new sparrow();
 
 c.birth();
 a.fly();
-a.eat();
 b.fly();
 d.eat();
+console.log(woodpecker.prototype.live)
+woodpecker.prototype.eat();
+
+console.log(typeof Object.create(Function.__proto__,{}))

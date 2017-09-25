@@ -12,4 +12,7 @@ module.exports = app => {
   app.get('/s', 'start.stu');
   app.post('/s', 'start.stu');
   app.post('/date', 'start.date');
+  app.get('/countBy', 'lodash.countBy');
+  app.get('/every', 'lodash.every');
+  app.get('/filter', 'lodash.filter');
 };

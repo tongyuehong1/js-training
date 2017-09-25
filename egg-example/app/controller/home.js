@@ -48,6 +48,12 @@ module.exports = app => {
         package: result.data,
       };
     }
+    * countBy() {
+      this.ctx.body = yield this.service.lodash.countBy();
+    }
+    * every() {
+      this.ctx.body = yield this.service.lodash.every();
+    }
   }
   return HomeController;
 };
