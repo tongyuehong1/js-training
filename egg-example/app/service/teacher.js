@@ -7,7 +7,7 @@ module.exports = app => {
   class Student extends app.Service {
     * create(param) {
       try {
-        yield app.mysql.insert('student', param);
+        yield app.mysql.insert('teacher', param);
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -18,7 +18,7 @@ module.exports = app => {
     * get(pro) {
       let res;
       try {
-        res = yield app.mysql.get('student', pro); // select
+        res = yield app.mysql.get('teacher', pro); // select
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -28,7 +28,7 @@ module.exports = app => {
 
     * delete(param) {
       try {
-        yield app.mysql.delete('student', param);
+        yield app.mysql.delete('teacher', param);
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -37,8 +37,22 @@ module.exports = app => {
     }
     * update(par) {
       try {
-        yield app.mysql.update('student', par);
+        yield app.mysql.update('teacher', par);
       } catch (e) {
+        this.ctx.logger.error(e);
+        return false;
+      }
+      return true;
+    }
+    * set() {
+      const conn = yield app.mysql.beginTransaction();
+      try {
+        yield conn.insert('teacher', { name: 'li', sno: 1 });
+        yield conn.insert('teacher', { name: 'wang', sno: 2 });
+        yield conn.insert('teacher', { name: 'zhang', sno: 3 });
+        yield conn.commit();
+      } catch (e) {
+        yield conn.rollback();
         this.ctx.logger.error(e);
         return false;
       }

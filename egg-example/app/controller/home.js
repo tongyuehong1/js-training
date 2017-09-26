@@ -31,17 +31,13 @@ module.exports = app => {
       const f = yield this.service.lodash.findIndex();
       this.ctx.body = `chunk ${c}  compact ${k}  findIndex ${f} `;
     }
-    * student() {
-      const t = yield this.service.student.student();
-      this.ctx.body = t;
-    }
     * home() {
       const result = yield this.ctx.curl('https://registry.npm.taobao.org/egg/latest', {
         // 自动解析 JSON response
         dataType: 'json',
         // 3 秒超时
         timeout: 3000,
-        
+
       });
       this.ctx.body = {
         status: result.status,

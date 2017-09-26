@@ -40,10 +40,6 @@ module.exports = app => {
       const f = _.filter(users, function(o) { return !o.active; });
       return `${f} ${_.filter(users, [ 'active', false ])}`;
     }
-    * find() {
-      
-    }
-
   }
   return Lodash;
 };

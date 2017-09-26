@@ -17,6 +17,12 @@ module.exports = app => {
     * update() {
       this.ctx.body = yield this.service.test.update(this.ctx.request.body);
     }
+    * select() {
+      this.ctx.body = yield this.service.test.select(this.ctx.request.body);
+    }
+    * set() {
+      this.ctx.body = yield this.service.test.set();
+    }
   }
   return TestController;
 };

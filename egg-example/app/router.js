@@ -8,7 +8,6 @@ module.exports = app => {
   app.get('/test', 'home.test');
   app.get('/lodash', 'home.lodash');
   app.get('/con', 'home.home');
-  app.get('/stu', 'home.student');
   app.get('/s', 'start.stu');
   app.post('/s', 'start.stu');
   app.post('/date', 'start.date');
@@ -19,4 +18,10 @@ module.exports = app => {
   app.post('/get', 'test.get');
   app.post('/delete', 'test.delete');
   app.post('/update', 'test.update');
+  app.post('/select', 'test.select');
+  app.post('/create1', 'student.create');
+  app.post('/get1', 'student.get');
+  app.post('/delete1', 'student.delete');
+  app.post('/update1', 'student.update');
+  app.post('/set', 'test.set');
 };

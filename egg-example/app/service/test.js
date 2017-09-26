@@ -14,11 +14,24 @@ module.exports = app => {
       }
       return true;
     }
-
-    * get(req) {
+    * get(re) {
       let res;
       try {
-        res = yield app.mysql.get('user', req); // select
+        res = yield app.mysql.get('user', re);
+      } catch (e) {
+        this.ctx.logger.error(e);
+        return false;
+      }
+      return res;
+    }
+    * select() {
+      let res;
+      try {
+        res = yield app.mysql.select('user', {
+          where: {
+            name: [ 'tong', 'a' ],
+          },
+        });
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -39,6 +52,21 @@ module.exports = app => {
       try {
         yield app.mysql.update('user', par);
       } catch (e) {
+        this.ctx.logger.error(e);
+        return false;
+      }
+      return true;
+    }
+    * set() {
+      const conn = yield app.mysql.beginTransaction();
+      try {
+        yield conn.update('user', { id: 2, age: 999 });
+        yield conn.insert('student', { name: 'zhao', sno: 1 });
+        yield conn.insert('student', { name: 'qian', sno: 2 });
+        yield conn.insert('student', { name: 'sun', sno: 3 });
+        yield conn.commit();
+      } catch (e) {
+        yield conn.rollback();
         this.ctx.logger.error(e);
         return false;
       }
