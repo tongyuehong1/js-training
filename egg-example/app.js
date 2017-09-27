@@ -6,6 +6,9 @@ const knex = require('knex')({
 
 module.exports = app => {
   app.beforeStart(function* () {
+    const ctx = app.createAnonymousContext();
+    ctx.logger.info('some request data');
+    ctx.logger.warn('WARNNING!!!!');
     const hasUser = yield app.mysql.query(knex.schema.hasTable('user').toString());
     if (hasUser.length === 0) {
       const userSchema = knex.schema.createTableIfNotExists('user', function(table) {
@@ -55,8 +58,8 @@ module.exports = app => {
       const uniqueName = knex.schema.alterTable('teacher', function(t) {
         t.unique('name');
       });
-
       yield app.mysql.query(uniqueName.toString());
+      yield ctx.helper.unique(app, 'user', 'name');
     }
   });
 };
