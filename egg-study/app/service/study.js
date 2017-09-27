@@ -1,24 +1,37 @@
 /**
- * 2017-09-26    Tong Yuehong
+ * 2017-09-27    Tong Yuehong
  */
 'use strict';
 
 module.exports = app => {
-  class Student extends app.Service {
+  class Test extends app.Service {
     * create(param) {
       try {
-        yield app.mysql.insert('teacher', param);
+        yield app.mysql.insert('user', param);
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
       }
       return true;
     }
-
-    * get(pro) {
+    * get(re) {
       let res;
       try {
-        res = yield app.mysql.get('teacher', pro); // select
+        res = yield app.mysql.get('user', re);
+      } catch (e) {
+        this.ctx.logger.error(e);
+        return false;
+      }
+      return res;
+    }
+    * select() {
+      let res;
+      try {
+        res = yield app.mysql.select('user', {
+          where: {
+            name: [ 'tong', 'a' ],
+          },
+        });
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -28,7 +41,7 @@ module.exports = app => {
 
     * delete(param) {
       try {
-        yield app.mysql.delete('teacher', param);
+        yield app.mysql.delete('user', param);
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -37,7 +50,7 @@ module.exports = app => {
     }
     * update(par) {
       try {
-        yield app.mysql.update('teacher', par);
+        yield app.mysql.update('user', par);
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -47,9 +60,9 @@ module.exports = app => {
     * set() {
       const conn = yield app.mysql.beginTransaction();
       try {
-        yield conn.insert('teacher', { name: 'li', age: 1 });
-        yield conn.insert('teacher', { name: 'wang', age: 2 });
-        yield conn.insert('teacher', { name: 'zhang', age: 3 });
+        yield conn.insert('user', { name: 'zhao', age: 1 });
+        yield conn.insert('user', { name: 'qian', age: 2 });
+        yield conn.insert('user', { name: 'sun', age: 3 });
         yield conn.commit();
       } catch (e) {
         yield conn.rollback();
@@ -59,5 +72,5 @@ module.exports = app => {
       return true;
     }
   }
-  return Student;
+  return Test;
 };

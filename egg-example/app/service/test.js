@@ -64,6 +64,7 @@ module.exports = app => {
         yield conn.insert('student', { name: 'zhao', sno: 1 });
         yield conn.insert('student', { name: 'qian', sno: 2 });
         yield conn.insert('student', { name: 'sun', sno: 3 });
+        yield conn.insert('student', { name: 'sun', sno: 4 });
         yield conn.commit();
       } catch (e) {
         yield conn.rollback();

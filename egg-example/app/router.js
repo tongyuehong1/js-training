@@ -24,4 +24,9 @@ module.exports = app => {
   app.post('/delete1', 'student.delete');
   app.post('/update1', 'student.update');
   app.post('/set', 'test.set');
+  app.post('/create', 'teacher.create');
+  app.post('/get', 'teacher.get');
+  app.post('/delete', 'teacher.delete');
+  app.post('/update', 'teacher.update');
+  app.post('/set1', 'teacher.set');
 };
