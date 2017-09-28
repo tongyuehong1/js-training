@@ -225,3 +225,14 @@ console.log(_.zipWith([1, 2], [10, 20], [100, 200], function(a, b, c) {
 console.log('********collection************');
 console.log(_.countBy([6.1, 4.2, 6.3], Math.floor));
 console.log(_.countBy(['one', 'two', 'three'], 'length'));
+
+console.log('*******************flatMapDepth*********************************');
+function duplicate(n) {
+  return [[[n, n]]];
+} 
+console.log(_.flatMapDepth([1, 2], duplicate, 1));
+console.log(_.flatMapDepth([1, 2], duplicate, 2));
+console.log('**********************includes*****************************');
+console.log(_.includes({ 'a': 1, 'b': 2 }, 1));
+console.log(_.includes([1, 2, 3],(1, 2)));
+console.log(_.includes([1, 2, 3],1, 2));
