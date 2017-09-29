@@ -2,8 +2,17 @@
 
 module.exports = app => {
   class HomeController extends app.Controller {
-    * index() {
-      this.ctx.body = 'hi, egg';
+    * login() {
+    }
+    * wecht() {
+    }
+    * mobile() {
+    }
+    * upload() {
+    }
+    * look() {
+    }
+    * vote() {
     }
   }
   return HomeController;

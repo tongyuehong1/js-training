@@ -14,7 +14,7 @@ module.exports = app => {
         table.integer('wechat').notNullable();
         table.string('mobile').notNullable().defaultTo(0);
         table.timestamp('create_at').defaultTo(knex.fn.now());
-        table.integer('vote').notNullable();
+        table.integer('vote').notNullable().defaultTo(0);
         table.string('type').notNullable().defaultTo('');
         table.charset('utf8');
       });
@@ -36,7 +36,7 @@ module.exports = app => {
       });
 
       yield app.mysql.query(productionSchema.toString());
-      yield ctx.helper.unique(app, 'production', 'userid');
+      yield ctx.helper.unique(app, 'production', 'url');
     }
   });
 };
