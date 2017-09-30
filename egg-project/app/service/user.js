@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports = app => {
-  const a = 3;
   class Project extends app.Service {
     * register(user) {
       try {
@@ -43,6 +42,7 @@ module.exports = app => {
       }
       return true;
     }
+    /*
     * vote(_id) {
       const vote = yield app.mysql.get('user', {
         where: { id: _id },
@@ -57,9 +57,9 @@ module.exports = app => {
           this.ctx.logger.error(e);
           return false;
         }
-        return true;
+        return vote;
       }
-    }
+    }*/
 
 
   }
