@@ -26,7 +26,7 @@ module.exports = appInfo => {
       // 密码
       password: '111111',
       // 数据库名
-      database: 'study',
+      database: 'training',
     },
     // 是否加载到 app 上，默认开启
     app: true,

@@ -8,4 +8,5 @@ module.exports = app => {
   app.post('/update', 'study.update');
   app.post('/select', 'study.select');
   app.post('/set', 'study.set');
+  app.post('/insert', 'training.insert');
 };

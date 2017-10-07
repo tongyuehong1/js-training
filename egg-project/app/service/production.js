@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = app => {
-  const  MAX_VOTES = 3;
+  const MAX_VOTES = 3;
   class Project extends app.Service {
     * upload(production) {
       try {
