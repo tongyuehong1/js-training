@@ -54,7 +54,7 @@ module.exports = app => {
         table.date('date').notNullable().defaultTo('1000-01-9');
         table.float('float').notNullable().defaultTo(1.2);
         table.dateTime('dateTime').notNullable().defaultTo('1000-01-01 00:00:00.000001');
-        table.time('time').notNullable().defaultTo(0);
+        table.time('time').notNullable().defaultTo(0);// 不能写09：....因为0是有意义的，比如从1970开始，0就代表1970
         table.timestamp('create_at').defaultTo(knex.fn.now());
         table.charset('utf8');
       });
