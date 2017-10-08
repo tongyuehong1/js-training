@@ -1,0 +1,19 @@
+
+  <view class="text">
+    <text>姓名:仝月虹</text>
+    <text>性别:女</text>
+    <text>出生年月：19980206</text>
+    <text>学校：华北电力大学科技学院</text>
+    <text>专业：计算机科学与技术</text>
+    <text>班级：计算机14k2</text>
+    <text>居住地：石家庄</text>
+    <button hover-class="button-hover" bindtap="set">主页</button>
+    <text>{{name}}</text>
+    <text>{{sex}}</text>
+    <text>{{born}}</text>
+    <checkbox-group bindchange="Change">
+      <label  wx:for="{{items}}" wx:key="index">
+        <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </checkbox-group>
+  </view>
