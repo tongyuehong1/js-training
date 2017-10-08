@@ -1,13 +1,13 @@
 <style lang="less">
-   .text{
-     display: flex;
-     flex-direction: column;
-     text-align: center;
-     //border-style: solid;
-     //background-color: gray;
-   }
-   .button-hover {
-     background-color: red;
+.text {
+  display: flex;
+  flex-direction: column;
+  text-align: center; //border-style: solid;
+  //background-color: gray;
+}
+
+.button-hover {
+  background-color: red;
 }
 </style>
 
@@ -26,40 +26,94 @@
     <text>{{born}}</text>
     <checkbox-group bindchange="Change">
       <label wx:for="{{items}}" wx:key="index">
-        <checkbox value="{{item.name}}" checked="{{item.checked}}"></checkbox>{{item.value}}
+        <checkbox value="{{item.name}}" checked="{{item.checked}}" color="red"></checkbox>{{item.value}}
       </label>
     </checkbox-group>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view>
+        <view>switch</view>
+        <switch name="switch"> </switch>
+      </view>
+      <view>
+        <view>slider</view>
+        <slider name="slider" show-value></slider>
+      </view>
+
+      <view>
+        <view>input</view>
+        <input name="input" placeholder="please input here" />
+      </view>
+      <view>
+        <view>radio</view>
+        <radio-group name="radio-group">
+          <label>
+            <radio value="radio1" />radio1</label>
+          <label>
+            <radio value="radio2" />radio2</label>
+        </radio-group>
+      </view>
+      <view>
+        <view>checkbox</view>
+        <checkbox-group name="checkbox">
+          <label>
+            <checkbox value="checkbox1" />checkbox1</label>
+          <label>
+            <checkbox value="checkbox2" />checkbox2</label>
+        </checkbox-group>
+      </view>
+      <view class="btn-area">
+        <button formType="submit">Submit</button>
+        <button formType="reset">Reset</button>
+      </view>
+    </form>
+    <input type="number" placeholder="请输入手机号" bindinput="bindKeyInput"></input>
+    <view>你输入的是{{inputValue}}</view>
   </view>
 </template>
 
 <script>
-  import wepy from 'wepy'
+import wepy from 'wepy'
 
-  export default class Index extends wepy.page {
-    config = {
-      navigationBarTitleText: '个人介绍'
-    }
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '个人介绍'
+  }
 
-    data = {
-      name: '仝月虹',
-      sex: '女',
-      born: '19980206',
-      items: [
-        {name: 'USA', value: '美国'},
-        {name: 'CHN', value: '中国', checked: 'true'},
-        {name: 'BRA', value: '巴西'}
-      ]
-    }
+  data = {
+    name: '仝月虹',
+    sex: '女',
+    born: '19980206',
+    items: [
+      { name: 'USA', value: '美国' },
+      { name: 'CHN', value: '中国', checked: 'true' },
+      { name: 'BRA', value: '巴西' }
+    ],
+    inputValue: 'null',
+    focus: false
+  }
 
+  methods = {
     set() {
       let self = this
       self.name = 'tong'
-    }
+    },
     Change(e) {
-      console.log(e)
       console.log('checkbox发生change事件，携带value值为：', e.detail.value)
-    }
+    },
+    formSubmit(e) {
+      console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    },
+    formReset() {
+      console.log('form发生了reset事件')
+    },
+    bindKeyInput(e) {
+      let self = this
+      self.inputValue = e.detail.value
 
-    onLoad() {}
+      console.log(self.inputValue)
+    }
   }
+
+  onLoad() { }
+}
 </script>
