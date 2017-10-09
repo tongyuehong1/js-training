@@ -55,4 +55,39 @@
     </form>
     <input type="number" placeholder="请输入手机号" bindinput="bindKeyInput"/>
     <view>你输入的是{{inputValue}}</view>
+
+    <view>
+      <video src="{{src}}"/>
+      <button bindtap="bindButtonTap">获取视频</button>
+    </view>
+
+    <view>
+      <image src="{{img}}"/>
+      <button bindtap="image">图片</button>
+    </view>
+    <view>时间选择器</view>
+    <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+      <view class="picker">
+        当前选择: {{time}}
+      </view>
+    </picker>
+    <view>{{year}}年{{month}}月{{day}}日</view>
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+      <picker-view-column>
+        <view  wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{months}}" style="line-height: 50px">{{item}}月</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
+      </picker-view-column>
+    </picker-view>
+    <audio poster="{{poster}}" name="{{name1}}" author="{{author}}" src="{{src1}}" id="myAudio" controls loop/>
+
+    <button type="primary" bindtap="audioPlay">播放</button>
+    <button type="primary" bindtap="audioPause">暂停</button>
+    <button type="primary" bindtap="audio14">设置当前播放时间为14秒</button>
+    <button type="primary" bindtap="audioStart">回到开头</button>
+
   </view>

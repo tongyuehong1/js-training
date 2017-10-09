@@ -68,17 +68,66 @@
     </form>
     <input type="number" placeholder="请输入手机号" bindinput="bindKeyInput"></input>
     <view>你输入的是{{inputValue}}</view>
+
+    <view>
+      <video src="{{src}}"></video>
+      <button bindtap="bindButtonTap">获取视频</button>
+    </view>
+
+    <view>
+      <image src="{{img}}"></image>
+      <button bindtap="image">图片</button>
+    </view>
+    <view>时间选择器</view>
+    <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+      <view class="picker">
+        当前选择: {{time}}
+      </view>
+    </picker>
+    <view>{{year}}年{{month}}月{{day}}日</view>
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{months}}" style="line-height: 50px">{{item}}月</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
+      </picker-view-column>
+    </picker-view>
+    <audio poster="{{poster}}" name="{{name1}}" author="{{author}}" src="{{src1}}" id="myAudio" controls loop></audio>
+
+    <button type="primary" bindtap="audioPlay">播放</button>
+    <button type="primary" bindtap="audioPause">暂停</button>
+    <button type="primary" bindtap="audio14">设置当前播放时间为14秒</button>
+    <button type="primary" bindtap="audioStart">回到开头</button>
+
   </view>
 </template>
 
 <script>
 import wepy from 'wepy'
+const date = new Date()
+const years = []
+const months = []
+const days = []
 
+for (let i = 1990; i <= date.getFullYear(); i++) {
+  years.push(i)
+}
+
+for (let i = 1; i <= 12; i++) {
+  months.push(i)
+}
+
+for (let i = 1; i <= 31; i++) {
+  days.push(i)
+}
 export default class Index extends wepy.page {
   config = {
     navigationBarTitleText: '个人介绍'
   }
-
   data = {
     name: '仝月虹',
     sex: '女',
@@ -89,7 +138,20 @@ export default class Index extends wepy.page {
       { name: 'BRA', value: '巴西' }
     ],
     inputValue: 'null',
-    focus: false
+    focus: false,
+    src: '',
+    img: '',
+    years: years,
+    year: date.getFullYear(),
+    months: months,
+    month: 2,
+    days: days,
+    day: 2,
+    value: [9999, 1, 1],
+    poster: 'http://y.gtimg.cn/music/photo_new/T002R300x300M000003rsKF44GyaSk.jpg?max_age=2592000',
+    name1: '原来你也在这里',
+    author: '刘若英',
+    src1: '../music/刘若英 - 原来你也在这里 (Live).mp3'
   }
 
   methods = {
@@ -111,9 +173,63 @@ export default class Index extends wepy.page {
       self.inputValue = e.detail.value
 
       console.log(self.inputValue)
+    },
+    bindButtonTap() {
+      let self = this
+      wepy.chooseVideo({
+        sourceType: ['camera', 'album'],
+        maxDuration: 60,
+        camera: 'front',
+        success(res) {
+          self.src = res.tempFilePath
+          self.setData({
+            src: res.tempFilePath
+          })
+        }
+      })
+    },
+    image() {
+      let self = this
+      wepy.chooseImage({
+        count: 1, // 默认9
+        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+        sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+        success(res) {
+          self.img = res.tempFilePaths[0]
+          self.setData({
+            img: res.tempFilePaths[0]
+          })
+        }
+      })
+    },
+    bindTimeChange(e) {
+      let self = this
+      console.log('picker发送选择改变，携带值为', e.detail.value)
+      self.setData({
+        time: e.detail.value
+      })
+    },
+    bindChange: function(e) {
+      const val = e.detail.value
+      this.setData({
+        year: this.data.years[val[0]],
+        month: this.data.months[val[1]],
+        day: this.data.days[val[2]]
+      })
+    },
+    audioPlay() {
+      this.audioCtx.play()
+    },
+    audioPause() {
+      this.audioCtx.pause()
+    },
+    audio14() {
+      this.audioCtx.seek(14)
+    },
+    audioStart() {
+      this.audioCtx.seek(0)
     }
   }
-
   onLoad() { }
 }
 </script>
