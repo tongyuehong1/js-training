@@ -1,0 +1,137 @@
+<style lang="less">
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pic {
+  height: 30px;
+  width: 30px;
+}
+
+.word {
+  font-size: 15px;
+}
+
+.avg {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pre {
+  flex: 1
+}
+
+.cir {
+  display: flex;
+  border: 1px solid gray;
+  border-radius: 100px
+}
+
+.distance {
+  margin: 20px 60px 20px 60px;
+}
+.dis {
+  margin: 20px 80px 20px 20px;
+}
+.dist {
+  margin: 20px 60px 20px 80px;
+}
+.up {
+  margin: 80px 60px 20px 60px;
+}
+
+.line {
+  width: 50px;
+  height: 1px;
+  background-color: gray;
+}
+.TA {
+  display: flex;
+  justify-content: center;
+}
+.six {
+  background: pink;
+  height: 60px;
+  width: 60px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.last {
+  margin: 100px 60px 20px 60px;
+}
+</style>
+<template>
+  <view>
+    <view class="text">
+      <text>简单2步，选中心动好礼</text>
+    </view>
+    <view class="avg distance">
+      <image class="pic cir" src="{{send}}"></image>
+      <view class="text">
+        <view>
+          <view class="line"></view>
+        </view>
+      </view>
+      <image class="pic cir" src="{{like}}"></image>
+      <view class="text">
+        <view>
+          <view class="line"></view>
+        </view>
+      </view>
+      <image class="pic cir" src="{{done}}"></image>
+    </view>
+    <view class="avg distance word">
+      <text>送给TA</text>
+      <text>TA喜欢的</text>
+      <text>送给TA</text>
+    </view>
+    <view class="TA up">
+      <text>送她        送他</text>
+    </view>
+    <view class="row distance avg">
+      <view class="six text word">
+        <text>自己</text>
+      </view>
+      <view class="six text word">
+        <text>老婆</text>
+      </view>
+      <view class="six text word">
+        <text>姐妹</text>
+      </view>
+    </view>
+    <view class="row distance avg">
+      <view class="six text word">
+        <text>妈妈</text>
+      </view>
+      <view class="six text word">
+        <text>长辈</text>
+      </view>
+      <view class="six text word">
+        <text>同事</text>
+      </view>
+    </view>
+    <view class="text last word">
+      <text>先跳过，随便逛逛 ▶</text>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '礼物说'
+  }
+  data = {
+    send: '../images/1.jpeg',
+    like: '../images/2.jpeg',
+    done: '../images/3.jpeg'
+  }
+  methods = {}
+  onLoad() { }
+}
+</script>
