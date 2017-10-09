@@ -1,1 +1,1 @@
-.text{display:flex;flex-direction:column;text-align:center}.button-hover{background-color:red}
+.text{display:flex;flex-direction:column;justify-content:center;align-items:center;background-color:gray;margin:10px 50px}.try{display:flex;justify-content:space-between;border:1px solid red;border-top-left-radius:6px}.flex{flex:1}.flex1{flex:2}.str{display:flex}.button-hover{background-color:red}

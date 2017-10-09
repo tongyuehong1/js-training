@@ -1,9 +1,31 @@
 <style lang="less">
 .text {
+  display: flex; // width:260px;
+  flex-direction: column; //将主轴设为了竖轴
+  justify-content: center; // 主轴
+  align-items: center;
+  background-color: gray;
+  margin: 10px 50px; // 块与周围间距（（上下，左右）（上，右，下，左）（上下左右））
+  //padding: 10px // 块内上右下左间距（同上）
+}
+
+.try {
   display: flex;
-  flex-direction: column;
-  text-align: center; //border-style: solid;
-  //background-color: gray;
+  justify-content: space-between;
+  border: 1px solid red; //border-radius: 6px;
+  //border-bottom: 1px solid red;//只设置下边框
+  border-top-left-radius: 6px; //只设置左上
+}
+
+.flex {
+  flex: 1;//权重（外围一定要是display: flex;）
+}
+.flex1 {
+  flex: 2;
+}
+
+.str{
+  display: flex;
 }
 
 .button-hover {
@@ -12,14 +34,24 @@
 </style>
 
 <template>
-  <view class="text">
-    <text>姓名:仝月虹</text>
-    <text>性别:女</text>
-    <text>出生年月：19980206</text>
-    <text>学校：华北电力大学科技学院</text>
-    <text>专业：计算机科学与技术</text>
-    <text>班级：计算机14k2</text>
-    <text>居住地：石家庄</text>
+  <view>
+    <view class="str">
+      <view class="flex">
+        <text>一句话</text>
+      </view>
+      <view class="flex1">
+        <text>两句话</text>
+      </view>
+    </view>
+    <view class="text">
+      <text>姓名:仝月虹</text>
+      <text>性别:女</text>
+      <text>出生年月：19980206</text>
+      <text>学校：华北电力大学科技学院</text>
+      <text>专业：计算机科学与技术</text>
+      <text>班级：计算机14k2</text>
+      <text>居住地：石家庄</text>
+    </view>
     <button hover-class="button-hover" @tap="set">主页</button>
     <text>{{name}}</text>
     <text>{{sex}}</text>
