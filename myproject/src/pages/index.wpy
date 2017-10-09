@@ -230,6 +230,10 @@ export default class Index extends wepy.page {
       this.audioCtx.seek(0)
     }
   }
+  onReady(e) {
+    // 使用 wx.createAudioContext 获取 audio 上下文 context
+    this.audioCtx = wepy.createAudioContext('myAudio')
+  }
   onLoad() { }
 }
 </script>
