@@ -5,42 +5,39 @@
   justify-content: center;
   align-items: center;
 }
-
-.pic {
-  height: 30px;
-  width: 30px;
+.firstword {
+  font-size: 20px;
 }
-
 .word {
-  font-size: 15px;
+  font-size: 10px;
 }
-
 .avg {
-  display: flex;
-  justify-content: space-between;
+   display: flex;
+   justify-content: space-between;
 }
-
 .pre {
   flex: 1
 }
-
 .cir {
   display: flex;
   border: 1px solid gray;
-  border-radius: 100px
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
 }
-
 .distance {
-  margin: 20px 60px 20px 60px;
-}
-.dis {
-  margin: 20px 80px 20px 20px;
-}
-.dist {
-  margin: 20px 60px 20px 80px;
+  margin: 10px 70px 5px 70px;
 }
 .up {
-  margin: 80px 60px 20px 60px;
+  margin: 80px 60px 5px 60px;
+}
+
+.startdistance {
+  margin: 5px 75px 20px 75px;
+}
+
+.sixdistance {
+  margin: 10px 40px 5px 40px;
 }
 
 .line {
@@ -48,30 +45,45 @@
   height: 1px;
   background-color: gray;
 }
+
 .TA {
   display: flex;
   justify-content: center;
 }
+
 .six {
   background: pink;
-  height: 60px;
-  width: 60px;
+  height: 75px;
+  width: 75px;
 }
+
 .row {
   display: flex;
   flex-direction: row;
 }
+
 .last {
   margin: 100px 60px 20px 60px;
+}
+
+.size {
+  height: 20px;
+  width: 20px
+}
+.wordmar {
+  margin: 5px 10px 5px 40px;
+}
+.wordmargin {
+  margin: 5px 40px 5px 10px;
 }
 </style>
 <template>
   <view>
-    <view class="text">
-      <text>简单2步，选中心动好礼</text>
+    <view class="text sixdistance">
+      <text class="firstword">简单2步，选中心动好礼</text>
     </view>
-    <view class="avg distance">
-      <image class="pic cir" src="{{send}}"></image>
+    <view class="row distance">
+      <image class="cir" src="{{send}}"></image>
       <view class="text">
         <view>
           <view class="line"></view>
@@ -85,33 +97,52 @@
       </view>
       <image class="pic cir" src="{{done}}"></image>
     </view>
-    <view class="avg distance word">
+    <view class="avg startdistance word">
       <text>送给TA</text>
       <text>TA喜欢的</text>
       <text>送给TA</text>
     </view>
     <view class="TA up">
-      <text>送她        送他</text>
+      <view class="wordmar">送她</view>
+      <view class="wordmargin">送他</view>
     </view>
-    <view class="row distance avg">
+    <view class="row sixdistance avg">
       <view class="six text word">
+        <view>
+          <image class="size" src="{{camera}}"></image>
+        </view>
         <text>自己</text>
       </view>
       <view class="six text word">
-        <text>老婆</text>
+        <view>
+          <image class="size" src="{{ring}}"></image>
+        </view>
+        <text>老婆/女票</text>
       </view>
       <view class="six text word">
-        <text>姐妹</text>
+        <view>
+          <image class="size" src="{{lipstick}}"></image>
+        </view>
+        <text>姐妹/闺蜜</text>
       </view>
     </view>
-    <view class="row distance avg">
+    <view class="row sixdistance avg">
       <view class="six text word">
+        <view>
+          <image class="size" src="{{flower}}"></image>
+        </view>
         <text>妈妈</text>
       </view>
       <view class="six text word">
+        <view>
+          <image class="size" src="{{tie}}"></image>
+        </view>
         <text>长辈</text>
       </view>
       <view class="six text word">
+        <view>
+          <image class="size" src="{{bag}}"></image>
+        </view>
         <text>同事</text>
       </view>
     </view>
@@ -127,9 +158,15 @@ export default class Index extends wepy.page {
     navigationBarTitleText: '礼物说'
   }
   data = {
-    send: '../images/1.jpeg',
-    like: '../images/2.jpeg',
-    done: '../images/3.jpeg'
+    send: '../images/first.png',
+    like: '../images/gift.png',
+    done: '../images/com.png',
+    camera: '../images/相机.png',
+    lipstick: '../images/lipstick.png',
+    ring: '../images/ring.png',
+    flower: '../images/flower.png',
+    tie: '../images/tie.png',
+    bag: '../images/bag.png'
   }
   methods = {}
   onLoad() { }
