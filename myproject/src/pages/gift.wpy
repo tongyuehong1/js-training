@@ -5,11 +5,25 @@
   justify-content: center;
   align-items: center;
 }
+.view {
+  position: fixed;  //必须加
+  bottom: 0; //必须加
+  width: 100%; // 必须等于100%
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.top {
+  margin: 30px 40px 5px 40px;
+}
 .firstword {
   font-size: 20px;
 }
 .word {
   font-size: 10px;
+}
+.sixword {
+  font-size: 13px;
 }
 .avg {
    display: flex;
@@ -25,23 +39,27 @@
   height: 25px;
   width: 25px;
 }
+.pic {
+  height: 20px;
+  width: 20px;
+}
 .distance {
-  margin: 10px 70px 5px 70px;
+  margin: 10px 5rem 5px 5rem;
 }
 .up {
-  margin: 80px 60px 5px 60px;
+  margin: 60px 60px 5px 60px;
 }
 
 .startdistance {
-  margin: 5px 75px 20px 75px;
+  margin: 5px 4.7rem 20px 4.7rem;
 }
 
 .sixdistance {
-  margin: 10px 40px 5px 40px;
+  margin: 10px 1.5rem 5px 1.5rem;
 }
 
 .line {
-  width: 50px;
+  width: 2.8rem;
   height: 1px;
   background-color: gray;
 }
@@ -53,8 +71,8 @@
 
 .six {
   background: pink;
-  height: 75px;
-  width: 75px;
+  height: 5rem;
+  width: 5rem;
 }
 
 .row {
@@ -62,13 +80,9 @@
   flex-direction: row;
 }
 
-.last {
-  margin: 100px 60px 20px 60px;
-}
-
 .size {
-  height: 20px;
-  width: 20px
+  height: 24px;
+  width: 24px
 }
 .wordmar {
   margin: 5px 10px 5px 40px;
@@ -76,27 +90,36 @@
 .wordmargin {
   margin: 5px 40px 5px 10px;
 }
+.rang {
+  width: 9.7rem;
+}
 </style>
 <template>
   <view>
-    <view class="text sixdistance">
+    <view class="text top">
       <text class="firstword">简单2步，选中心动好礼</text>
     </view>
-    <view class="row distance">
-      <image class="cir" src="{{send}}"></image>
-      <view class="text">
-        <view>
-          <view class="line"></view>
+      <view class="row distance">
+        <view class="cir text">
+          <image class="pic" src="{{send}}"></image>
+        </view>
+        <view class="text">
+          <view>
+            <view class="line"></view>
+          </view>
+        </view>
+        <view class="cir text">
+          <image class="pic" src="{{like}}"></image>
+        </view>
+        <view class="text">
+          <view>
+            <view class="line"></view>
+          </view>
+        </view>
+        <view class="cir text">
+          <image class="pic" src="{{done}}"></image>
         </view>
       </view>
-      <image class="pic cir" src="{{like}}"></image>
-      <view class="text">
-        <view>
-          <view class="line"></view>
-        </view>
-      </view>
-      <image class="pic cir" src="{{done}}"></image>
-    </view>
     <view class="avg startdistance word">
       <text>送给TA</text>
       <text>TA喜欢的</text>
@@ -107,46 +130,34 @@
       <view class="wordmargin">送他</view>
     </view>
     <view class="row sixdistance avg">
-      <view class="six text word">
-        <view>
+      <view class="six text sixword">
           <image class="size" src="{{camera}}"></image>
-        </view>
         <text>自己</text>
       </view>
-      <view class="six text word">
-        <view>
+      <view class="six text sixword">
           <image class="size" src="{{ring}}"></image>
-        </view>
         <text>老婆/女票</text>
       </view>
-      <view class="six text word">
-        <view>
+      <view class="six text sixword">
           <image class="size" src="{{lipstick}}"></image>
-        </view>
         <text>姐妹/闺蜜</text>
       </view>
     </view>
     <view class="row sixdistance avg">
-      <view class="six text word">
-        <view>
+      <view class="six text sixword">
           <image class="size" src="{{flower}}"></image>
-        </view>
         <text>妈妈</text>
       </view>
-      <view class="six text word">
-        <view>
+      <view class="six text sixword">
           <image class="size" src="{{tie}}"></image>
-        </view>
         <text>长辈</text>
       </view>
-      <view class="six text word">
-        <view>
+      <view class="six text sixword">
           <image class="size" src="{{bag}}"></image>
-        </view>
         <text>同事</text>
       </view>
     </view>
-    <view class="text last word">
+    <view class="text word view">
       <text>先跳过，随便逛逛 ▶</text>
     </view>
   </view>
@@ -168,7 +179,32 @@ export default class Index extends wepy.page {
     tie: '../images/tie.png',
     bag: '../images/bag.png'
   }
-  methods = {}
+  methods = {
+    female() {
+      let self = this
+      self.send = '../images/first.png'
+      self.like = '../images/gift.png'
+      self.done = '../images/com.png'
+      self.camera = '../images/相机.png'
+      self.lipstick = '../images/lipstick.png'
+      self.ring = '../images/ring.png'
+      self.flower = '../images/flower.png'
+      self.tie = '../images/tie.png'
+      self.bag = '../images/bag.png'
+    },
+    male() {
+      let self = this
+      self.send = '../images/first.png'
+      self.like = '../images/gift.png'
+      self.done = '../images/com.png'
+      self.camera = '../images/相机.png'
+      self.lipstick = '../images/lipstick.png'
+      self.ring = '../images/ring.png'
+      self.flower = '../images/flower.png'
+      self.tie = '../images/tie.png'
+      self.bag = '../images/bag.png'
+    }
+  }
   onLoad() { }
 }
 </script>

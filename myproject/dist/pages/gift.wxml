@@ -1,23 +1,29 @@
 
   <view>
-    <view class="text sixdistance">
+    <view class="text top">
       <text class="firstword">简单2步，选中心动好礼</text>
     </view>
-    <view class="row distance">
-      <image class="cir" src="{{send}}"/>
-      <view class="text">
-        <view>
-          <view class="line"/>
+      <view class="row distance">
+        <view class="cir text">
+          <image class="pic" src="{{send}}"/>
+        </view>
+        <view class="text">
+          <view>
+            <view class="line"/>
+          </view>
+        </view>
+        <view class="cir text">
+          <image class="pic" src="{{like}}"/>
+        </view>
+        <view class="text">
+          <view>
+            <view class="line"/>
+          </view>
+        </view>
+        <view class="cir text">
+          <image class="pic" src="{{done}}"/>
         </view>
       </view>
-      <image class="pic cir" src="{{like}}"/>
-      <view class="text">
-        <view>
-          <view class="line"/>
-        </view>
-      </view>
-      <image class="pic cir" src="{{done}}"/>
-    </view>
     <view class="avg startdistance word">
       <text>送给TA</text>
       <text>TA喜欢的</text>
@@ -28,46 +34,34 @@
       <view class="wordmargin">送他</view>
     </view>
     <view class="row sixdistance avg">
-      <view class="six text word">
-        <view>
+      <view class="six text sixword">
           <image class="size" src="{{camera}}"/>
-        </view>
         <text>自己</text>
       </view>
-      <view class="six text word">
-        <view>
+      <view class="six text sixword">
           <image class="size" src="{{ring}}"/>
-        </view>
         <text>老婆/女票</text>
       </view>
-      <view class="six text word">
-        <view>
+      <view class="six text sixword">
           <image class="size" src="{{lipstick}}"/>
-        </view>
         <text>姐妹/闺蜜</text>
       </view>
     </view>
     <view class="row sixdistance avg">
-      <view class="six text word">
-        <view>
+      <view class="six text sixword">
           <image class="size" src="{{flower}}"/>
-        </view>
         <text>妈妈</text>
       </view>
-      <view class="six text word">
-        <view>
+      <view class="six text sixword">
           <image class="size" src="{{tie}}"/>
-        </view>
         <text>长辈</text>
       </view>
-      <view class="six text word">
-        <view>
+      <view class="six text sixword">
           <image class="size" src="{{bag}}"/>
-        </view>
         <text>同事</text>
       </view>
     </view>
-    <view class="text last word">
+    <view class="text word view">
       <text>先跳过，随便逛逛 ▶</text>
     </view>
   </view>
