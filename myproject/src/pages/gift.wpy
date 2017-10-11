@@ -5,53 +5,76 @@
   justify-content: center;
   align-items: center;
 }
+
 .view {
-  position: fixed;  //必须加
+  position: fixed; //必须加
   bottom: 0; //必须加
   width: 100%; // 必须等于100%
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
+
 .top {
-  margin: 30px 40px 5px 40px;
+  margin: 1.875rem 2.5rem 5px 2.5rem;
 }
+
+.top1 {
+  margin: 0.93rem 2.5rem 5px 2.5rem;
+}
+
 .firstword {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
+
 .word {
-  font-size: 10px;
+  font-size: 0.625rem;
 }
+
 .sixword {
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
+
+.threesize {
+  width: 6.5rem;
+}
+
 .avg {
-   display: flex;
-   justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
+
 .pre {
   flex: 1
 }
+
 .cir {
   display: flex;
   border: 1px solid gray;
   border-radius: 50%;
-  height: 25px;
-  width: 25px;
+  height: 1.5625rem;
+  width: 1.5625rem;
 }
+
 .pic {
-  height: 20px;
-  width: 20px;
+  height: 1.25rem;
+  width: 1.25rem;
 }
+
 .distance {
-  margin: 10px 5rem 5px 5rem;
+  margin: 10px 4.8rem 5px 4.8rem;
 }
+
+.distance1 {
+  margin: 3px 4.9rem 5px 4.35rem;
+}
+
 .up {
-  margin: 60px 60px 5px 60px;
+  margin: 3.75rem 60px 5px 60px;
 }
 
 .startdistance {
-  margin: 5px 4.7rem 20px 4.7rem;
+  margin: 5px 4.8rem 20px 4.8rem;
 }
 
 .sixdistance {
@@ -59,10 +82,17 @@
 }
 
 .line {
-  width: 2.8rem;
+  width: 2.6rem;
   height: 1px;
   background-color: gray;
 }
+
+.line1 {
+  width: 2.2rem;
+  height: 1px;
+  background-color: white;
+}
+
 
 .TA {
   display: flex;
@@ -84,12 +114,15 @@
   height: 24px;
   width: 24px
 }
+
 .wordmar {
   margin: 5px 10px 5px 40px;
 }
+
 .wordmargin {
-  margin: 5px 40px 5px 10px;
+  margin: 5px 2.5rem 5px 10px;
 }
+
 .rang {
   width: 9.7rem;
 }
@@ -99,62 +132,68 @@
     <view class="text top">
       <text class="firstword">简单2步，选中心动好礼</text>
     </view>
-      <view class="row distance">
+    <view class="text">
+      <view class="row text top1" style="width: 15rem;">
         <view class="cir text">
-          <image class="pic" src="{{send}}"></image>
+          <image class="pic" src="{{image.send}}"></image>
         </view>
         <view class="text">
-          <view>
             <view class="line"></view>
-          </view>
         </view>
         <view class="cir text">
-          <image class="pic" src="{{like}}"></image>
+          <image class="pic" src="{{image.like}}"></image>
         </view>
         <view class="text">
-          <view>
             <view class="line"></view>
-          </view>
         </view>
         <view class="cir text">
-          <image class="pic" src="{{done}}"></image>
+          <image class="pic" src="{{image.done}}"></image>
         </view>
       </view>
-    <view class="avg startdistance word">
-      <text>送给TA</text>
-      <text>TA喜欢的</text>
-      <text>送给TA</text>
+    </view>
+    <view class="distance1">
+      <view class="text word row">
+        <text>送给TA</text>
+        <view class="text">
+          <view class="line1"></view>
+        </view>
+        <text>TA喜欢的</text>
+        <view class="text">
+          <view class="line1"></view>
+        </view>
+        <text>完成</text>
+      </view>
     </view>
     <view class="TA up">
-      <view class="wordmar">送她</view>
-      <view class="wordmargin">送他</view>
+      <text class="wordmar" @tap="female" style="color: {{color.colorfemale}}; border-bottom:3px solid {{color.solidfemale}}">送她</text>
+      <text class="wordmargin" @tap="male" style="color: {{color.colormale}}; border-bottom:3px solid {{color.solidmale}}">送他</text>
     </view>
     <view class="row sixdistance avg">
       <view class="six text sixword">
-          <image class="size" src="{{camera}}"></image>
-        <text>自己</text>
+        <image class="size" src="{{image.camera}}"></image>
+        <text>{{word.self}}</text>
       </view>
       <view class="six text sixword">
-          <image class="size" src="{{ring}}"></image>
-        <text>老婆/女票</text>
+        <image class="size" src="{{image.ring}}"></image>
+        <text>{{word.couple}}</text>
       </view>
       <view class="six text sixword">
-          <image class="size" src="{{lipstick}}"></image>
-        <text>姐妹/闺蜜</text>
+        <image class="size" src="{{image.lipstick}}"></image>
+        <text>{{word.friend}}</text>
       </view>
     </view>
     <view class="row sixdistance avg">
       <view class="six text sixword">
-          <image class="size" src="{{flower}}"></image>
-        <text>妈妈</text>
+        <image class="size" src="{{image.flower}}"></image>
+        <text>{{word.parent}}</text>
       </view>
       <view class="six text sixword">
-          <image class="size" src="{{tie}}"></image>
-        <text>长辈</text>
+        <image class="size" src="{{image.tie}}"></image>
+        <text>{{word.elder}}</text>
       </view>
       <view class="six text sixword">
-          <image class="size" src="{{bag}}"></image>
-        <text>同事</text>
+        <image class="size" src="{{image.bag}}"></image>
+        <text>{{word.partner}}</text>
       </view>
     </view>
     <view class="text word view">
@@ -169,40 +208,79 @@ export default class Index extends wepy.page {
     navigationBarTitleText: '礼物说'
   }
   data = {
-    send: '../images/first.png',
-    like: '../images/gift.png',
-    done: '../images/com.png',
-    camera: '../images/相机.png',
-    lipstick: '../images/lipstick.png',
-    ring: '../images/ring.png',
-    flower: '../images/flower.png',
-    tie: '../images/tie.png',
-    bag: '../images/bag.png'
+    image: {
+      send: '../images/first.png',
+      like: '../images/gift.png',
+      done: '../images/com.png',
+      camera: '../images/camera.png',
+      lipstick: '../images/lipstick.png',
+      ring: '../images/ring.png',
+      flower: '../images/flower.png',
+      tie: '../images/tie.png',
+      bag: '../images/bag.png'
+    },
+    word: {
+      self: '自己',
+      parent: '妈妈',
+      couple: '老婆/女票',
+      friend: '姐妹/闺蜜',
+      elder: '长辈',
+      partner: '同事'
+    },
+    color: {
+      colormale: 'black',
+      colorfemale: 'pink',
+      solidfemale: 'pink',
+      solidmale: 'white'
+    }
   }
   methods = {
     female() {
       let self = this
-      self.send = '../images/first.png'
-      self.like = '../images/gift.png'
-      self.done = '../images/com.png'
-      self.camera = '../images/相机.png'
-      self.lipstick = '../images/lipstick.png'
-      self.ring = '../images/ring.png'
-      self.flower = '../images/flower.png'
-      self.tie = '../images/tie.png'
-      self.bag = '../images/bag.png'
+      self.image.send = '../images/first.png'
+      self.image.like = '../images/gift.png'
+      self.image.done = '../images/com.png'
+      self.image.send = '../images/first.png'
+      self.image.like = '../images/gift.png'
+      self.image.done = '../images/com.png'
+      self.image.camera = '../images/相机.png'
+      self.image.lipstick = '../images/lipstick.png'
+      self.image.ring = '../images/ring.png'
+      self.image.flower = '../images/flower.png'
+      self.image.tie = '../images/tie.png'
+      self.image.bag = '../images/bag.png'
+      self.word.parent = '妈妈'
+      self.word.self = '自己'
+      self.word.couple = '老婆/女票'
+      self.word.friend = '姐妹/闺蜜'
+      self.word.elder = '长辈'
+      self.word.partner = '同事'
+      self.color.colorfemale = 'pink'
+      self.color.solidfemale = 'pink'
+      self.color.solidmale = 'white'
+      self.color.colormale = 'black'
     },
     male() {
       let self = this
-      self.send = '../images/first.png'
-      self.like = '../images/gift.png'
-      self.done = '../images/com.png'
-      self.camera = '../images/相机.png'
-      self.lipstick = '../images/lipstick.png'
-      self.ring = '../images/ring.png'
-      self.flower = '../images/flower.png'
-      self.tie = '../images/tie.png'
-      self.bag = '../images/bag.png'
+      self.image.send = '../images/first.png'
+      self.image.like = '../images/gift.png'
+      self.image.done = '../images/com.png'
+      self.image.camera = '../images/camera.png'
+      self.image.lipstick = '../images/watch.png'
+      self.image.ring = '../images/ring.png'
+      self.image.flower = '../images/glasses.png'
+      self.image.tie = '../images/tie.png'
+      self.image.bag = '../images/bag.png'
+      self.word.parent = '爸爸'
+      self.word.self = '自己'
+      self.word.couple = '老公/男票'
+      self.word.friend = '兄弟/基友'
+      self.word.elder = '长辈'
+      self.word.partner = '同事'
+      self.color.colormale = 'pink'
+      self.color.solidmale = 'pink'
+      self.color.solidfemale = 'white'
+      self.color.colorfemale = 'black'
     }
   }
   onLoad() { }

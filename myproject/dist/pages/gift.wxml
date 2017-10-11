@@ -3,62 +3,68 @@
     <view class="text top">
       <text class="firstword">简单2步，选中心动好礼</text>
     </view>
-      <view class="row distance">
+    <view class="text">
+      <view class="row text top1" style="width: 15rem;">
         <view class="cir text">
-          <image class="pic" src="{{send}}"/>
+          <image class="pic" src="{{image.send}}"/>
         </view>
         <view class="text">
-          <view>
             <view class="line"/>
-          </view>
         </view>
         <view class="cir text">
-          <image class="pic" src="{{like}}"/>
+          <image class="pic" src="{{image.like}}"/>
         </view>
         <view class="text">
-          <view>
             <view class="line"/>
-          </view>
         </view>
         <view class="cir text">
-          <image class="pic" src="{{done}}"/>
+          <image class="pic" src="{{image.done}}"/>
         </view>
       </view>
-    <view class="avg startdistance word">
-      <text>送给TA</text>
-      <text>TA喜欢的</text>
-      <text>送给TA</text>
+    </view>
+    <view class="distance1">
+      <view class="text word row">
+        <text>送给TA</text>
+        <view class="text">
+          <view class="line1"/>
+        </view>
+        <text>TA喜欢的</text>
+        <view class="text">
+          <view class="line1"/>
+        </view>
+        <text>完成</text>
+      </view>
     </view>
     <view class="TA up">
-      <view class="wordmar">送她</view>
-      <view class="wordmargin">送他</view>
+      <text class="wordmar" bindtap="female" style="color: {{color.colorfemale}}; border-bottom:3px solid {{color.solidfemale}}">送她</text>
+      <text class="wordmargin" bindtap="male" style="color: {{color.colormale}}; border-bottom:3px solid {{color.solidmale}}">送他</text>
     </view>
     <view class="row sixdistance avg">
       <view class="six text sixword">
-          <image class="size" src="{{camera}}"/>
-        <text>自己</text>
+        <image class="size" src="{{image.camera}}"/>
+        <text>{{word.self}}</text>
       </view>
       <view class="six text sixword">
-          <image class="size" src="{{ring}}"/>
-        <text>老婆/女票</text>
+        <image class="size" src="{{image.ring}}"/>
+        <text>{{word.couple}}</text>
       </view>
       <view class="six text sixword">
-          <image class="size" src="{{lipstick}}"/>
-        <text>姐妹/闺蜜</text>
+        <image class="size" src="{{image.lipstick}}"/>
+        <text>{{word.friend}}</text>
       </view>
     </view>
     <view class="row sixdistance avg">
       <view class="six text sixword">
-          <image class="size" src="{{flower}}"/>
-        <text>妈妈</text>
+        <image class="size" src="{{image.flower}}"/>
+        <text>{{word.parent}}</text>
       </view>
       <view class="six text sixword">
-          <image class="size" src="{{tie}}"/>
-        <text>长辈</text>
+        <image class="size" src="{{image.tie}}"/>
+        <text>{{word.elder}}</text>
       </view>
       <view class="six text sixword">
-          <image class="size" src="{{bag}}"/>
-        <text>同事</text>
+        <image class="size" src="{{image.bag}}"/>
+        <text>{{word.partner}}</text>
       </view>
     </view>
     <view class="text word view">
