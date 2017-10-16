@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = app => {
-  app.post('/two/missing', 'home.index');
+  app.post('/two/missinginsert', 'missing.insert');
+  app.post('/two/missingselect', 'missing.select');
 };
