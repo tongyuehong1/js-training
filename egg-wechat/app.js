@@ -51,5 +51,17 @@ module.exports = app => {
 
       yield app.mysql.query(strategySchema.toString());
     }
+    const hasImage = yield app.mysql.query(knex.schema.hasTable('image').toString());
+    if (hasImage.length === 0) {
+      const imageSchema = knex.schema.createTableIfNotExists('image', function(table) {
+        table.increments();
+        // table.string('wechat').notNullable();
+        table.string('image').notNullable();
+        table.timestamp('create_at').defaultTo(knex.fn.now());
+        table.charset('utf8');
+      });
+
+      yield app.mysql.query(imageSchema.toString());
+    }
   });
 };

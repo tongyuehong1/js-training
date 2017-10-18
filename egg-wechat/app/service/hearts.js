@@ -15,7 +15,7 @@ module.exports = app => {
       let res;
       try {
         res = yield app.mysql.select('letters', {
-          where: { wechat: _wechat },
+          where: { wechat: _wechat.wechat },
         });
       } catch (e) {
         this.ctx.logger.error(e);
