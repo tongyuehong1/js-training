@@ -4,7 +4,7 @@ module.exports = app => {
   class Hearts extends app.Service {
     * insert(letter) {
       try {
-        yield app.mysql.insert('letters', letter);
+        yield app.mysql.insert('send', letter);
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -14,7 +14,7 @@ module.exports = app => {
     * select(_wechat) {
       let res;
       try {
-        res = yield app.mysql.select('letters', {
+        res = yield app.mysql.select('send', {
           where: { wechat: _wechat.wechat },
         });
       } catch (e) {

@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = app => {
-  class Missing extends app.Service {
+  class Photo extends app.Service {
     * insert(dates) {
       try {
-        yield app.mysql.insert('missing', dates);
+        yield app.mysql.insert('photo', dates);
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -14,7 +14,7 @@ module.exports = app => {
     * select(_wechat) {
       let res;
       try {
-        res = yield app.mysql.select('missing', {
+        res = yield app.mysql.select('photo', {
           where: { wechat: _wechat.wechat },
         });
       } catch (e) {
@@ -23,15 +23,6 @@ module.exports = app => {
       }
       return res;
     }
-    * update(dates) {
-      try {
-        yield app.mysql.update('missing', dates);
-      } catch (e) {
-        this.ctx.logger.error(e);
-        return false;
-      }
-      return true;
-    }
   }
-  return Missing;
+  return Photo;
 };
