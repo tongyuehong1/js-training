@@ -2,18 +2,15 @@
 
 module.exports = app => {
   class EssayController extends app.Controller {
-    * first() {
-      // console.log(this.ctx.request.body);
-      this.ctx.body = yield this.service.essay.first(this.ctx.request.body);
+    * essay() {
+      this.ctx.body = yield this.service.essay.essay();
     }
-    * second() {
-      // console.log(this.ctx.request.body);
-      this.ctx.body = yield this.service.essay.second(this.ctx.request.body);
-    }
-    * third() {
-      // console.log(this.ctx.request.body);
-      this.ctx.body = yield this.service.essay.third(this.ctx.request.body);
-    }
+    // * img() {
+    //   this.ctx.body = yield this.service.essay.img();
+    // }
+    // * brief() {
+    //   this.ctx.body = yield this.service.essay.brief();
+    // }
   }
   return EssayController;
 };

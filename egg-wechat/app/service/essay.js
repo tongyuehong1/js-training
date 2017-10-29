@@ -2,42 +2,40 @@
 
 module.exports = app => {
   class Essay extends app.Service {
-    * first() {
+    * essay() {
       let res;
       try {
-        res = yield app.mysql.select('essay', {
-          where: { id: 1 },
-        });
+        res = yield app.mysql.select('showessay');
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
       }
       return res;
     }
-    * second() {
-      let res;
-      try {
-        res = yield app.mysql.select('essay', {
-          where: { id: 2 },
-        });
-      } catch (e) {
-        this.ctx.logger.error(e);
-        return false;
-      }
-      return res;
-    }
-    * third() {
-      let res;
-      try {
-        res = yield app.mysql.select('essay', {
-          where: { id: 3 },
-        });
-      } catch (e) {
-        this.ctx.logger.error(e);
-        return false;
-      }
-      return res;
-    }
+    // * img() {
+    //   let res;
+    //   try {
+    //     res = yield app.mysql.select('showessay', {
+    //       columns: 'img',
+    //     });
+    //   } catch (e) {
+    //     this.ctx.logger.error(e);
+    //     return false;
+    //   }
+    //   return res;
+    // }
+    // * brief() {
+    //   let res;
+    //   try {
+    //     res = yield app.mysql.select('showessay', {
+    //       columns: 'brief',
+    //     });
+    //   } catch (e) {
+    //     this.ctx.logger.error(e);
+    //     return false;
+    //   }
+    //   return res;
+    // }
   }
   return Essay;
 };

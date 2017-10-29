@@ -32,15 +32,18 @@ module.exports = app => {
       });
       yield app.mysql.query(photoSchema.toString());
     }
-    const hasEssay = yield app.mysql.query(knex.schema.hasTable('essay').toString());
-    if (hasEssay.length === 0) {
-      const essaySchema = knex.schema.createTableIfNotExists('essay', function(table) {
+    const hasShowessay = yield app.mysql.query(knex.schema.hasTable('showessay').toString());
+    if (hasShowessay.length === 0) {
+      const showessaySchema = knex.schema.createTableIfNotExists('showessay', function(table) {
         table.increments();
+        table.string('pic').notNullable();
+        table.text('title').notNullable();
+        table.text('brief').notNullable();
         table.text('essay').notNullable();
         table.timestamp('create_at').defaultTo(knex.fn.now());
         table.charset('utf8');
       });
-      yield app.mysql.query(essaySchema.toString());
+      yield app.mysql.query(showessaySchema.toString());
     }
     const hasSend = yield app.mysql.query(knex.schema.hasTable('send').toString());
     if (hasSend.length === 0) {

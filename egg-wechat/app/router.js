@@ -7,7 +7,7 @@ module.exports = app => {
   app.post('/two/photoinsert', 'photo.insert');
   app.post('/hearts/list', 'hearts.select');
   app.post('/hearts/send', 'hearts.insert');
-  app.post('/essayfirst', 'essay.first');
-  app.post('/essaysecond', 'essay.second');
-  app.post('/essaythird', 'essay.third');
+  // app.post('/essay/title', 'essay.title');
+  // app.post('/essay/img', 'essay.img');
+  app.post('/essay', 'essay.essay');
 };
