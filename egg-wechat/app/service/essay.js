@@ -12,30 +12,6 @@ module.exports = app => {
       }
       return res;
     }
-    // * img() {
-    //   let res;
-    //   try {
-    //     res = yield app.mysql.select('showessay', {
-    //       columns: 'img',
-    //     });
-    //   } catch (e) {
-    //     this.ctx.logger.error(e);
-    //     return false;
-    //   }
-    //   return res;
-    // }
-    // * brief() {
-    //   let res;
-    //   try {
-    //     res = yield app.mysql.select('showessay', {
-    //       columns: 'brief',
-    //     });
-    //   } catch (e) {
-    //     this.ctx.logger.error(e);
-    //     return false;
-    //   }
-    //   return res;
-    // }
   }
   return Essay;
 };
