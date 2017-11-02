@@ -9,5 +9,5 @@ module.exports = app => {
   app.post('/hearts/send', 'hearts.insert');
   // app.post('/essay/title', 'essay.title');
   // app.post('/essay/img', 'essay.img');
-  app.get('/essay', 'essay.essay');
+  app.post('/essay', 'essay.essay');
 };
