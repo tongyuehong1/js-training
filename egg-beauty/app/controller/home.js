@@ -2,8 +2,8 @@
 
 module.exports = app => {
   class HomeController extends app.Controller {
-    * index() {
-      this.ctx.body = 'hi, egg';
+    * home() {
+      this.ctx.body = yield this.service.home.home();
     }
   }
   return HomeController;

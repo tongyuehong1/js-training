@@ -21,5 +21,19 @@ module.exports = app => {
       yield app.mysql.query(missingSchema.toString());
       // yield ctx.helper.unique(app, 'missing', 'wechat');
     }
+    const hasHome = yield app.mysql.query(knex.schema.hasTable('home').toString());
+    if (hasHome.length === 0) {
+      const homeSchema = knex.schema.createTableIfNotExists('home', function(table) {
+        table.increments();
+        table.string('img').notNullable();
+        // table.string('price').notNullable();
+        // table.string('num').notNullable();
+        // table.string('TA').notNullable();
+        table.timestamp('create_at').defaultTo(knex.fn.now());
+        table.charset('utf8');
+      });
+      yield app.mysql.query(homeSchema.toString());
+      // yield ctx.helper.unique(app, 'missing', 'wechat');
+    }
   });
 };
