@@ -18,6 +18,10 @@ module.exports = app => {
       console.log(this.ctx.request.body);
       this.ctx.body = yield this.service.hearts.anotherlist(this.ctx.request.body);
     }
+    * delete() {
+      console.log(this.ctx.request.body);
+      this.ctx.body = yield this.service.hearts.delete(this.ctx.request.body);
+    }
   }
   return HeartsController;
 };

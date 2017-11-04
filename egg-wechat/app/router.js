@@ -10,5 +10,5 @@ module.exports = app => {
   app.post('/hearts/send', 'hearts.insert');
   app.post('/hearts/selectanother', 'hearts.selectanother');
   app.post('/hearts/anotherlist', 'hearts.anotherlist');
-  // app.post('/hearts/anotherlist', 'hearts.delete');
+  app.post('/hearts/delete', 'hearts.delete');
 };

@@ -47,6 +47,17 @@ module.exports = app => {
       }
       return res;
     }
+    * delete(_id) {
+      try {
+        yield app.mysql.delete('write', {
+          where: { Id: _id.id },
+        });
+      } catch (e) {
+        this.ctx.logger.error(e);
+        return false;
+      }
+      return true;
+    }
   }
   return Hearts;
 };
