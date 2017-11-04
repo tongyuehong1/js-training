@@ -4,7 +4,7 @@ module.exports = app => {
   class Hearts extends app.Service {
     * insert(letter) {
       try {
-        yield app.mysql.insert('send', letter);
+        yield app.mysql.insert('write', letter);
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -14,7 +14,31 @@ module.exports = app => {
     * select(_wechat) {
       let res;
       try {
-        res = yield app.mysql.select('send', {
+        res = yield app.mysql.select('write', {
+          where: { wechat: _wechat.wechat },
+        });
+      } catch (e) {
+        this.ctx.logger.error(e);
+        return false;
+      }
+      return res;
+    }
+    * selectanother(_wechat) {
+      let res;
+      try {
+        res = yield app.mysql.select('user', {
+          where: { wechat: _wechat.wechat },
+        });
+      } catch (e) {
+        this.ctx.logger.error(e);
+        return false;
+      }
+      return res;
+    }
+    * anotherlist(_wechat) {
+      let res;
+      try {
+        res = yield app.mysql.select('write', {
           where: { wechat: _wechat.wechat },
         });
       } catch (e) {

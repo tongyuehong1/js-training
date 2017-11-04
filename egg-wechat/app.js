@@ -45,16 +45,29 @@ module.exports = app => {
       });
       yield app.mysql.query(showessaySchema.toString());
     }
-    const hasSend = yield app.mysql.query(knex.schema.hasTable('send').toString());
-    if (hasSend.length === 0) {
-      const sendSchema = knex.schema.createTableIfNotExists('send', function(table) {
+    const hasWrite = yield app.mysql.query(knex.schema.hasTable('write').toString());
+    if (hasWrite.length === 0) {
+      const writeSchema = knex.schema.createTableIfNotExists('write', function(table) {
         table.increments();
         table.string('wechat').notNullable();
+        table.string('img');
+        table.string('title').notNullable();
         table.text('letter').notNullable();
         table.timestamp('create_at').defaultTo(knex.fn.now());
         table.charset('utf8');
       });
-      yield app.mysql.query(sendSchema.toString());
+      yield app.mysql.query(writeSchema.toString());
+    }
+    const hasUser = yield app.mysql.query(knex.schema.hasTable('user').toString());
+    if (hasUser.length === 0) {
+      const userSchema = knex.schema.createTableIfNotExists('user', function(table) {
+        table.increments();
+        table.string('wechat').notNullable();
+        table.string('anthor').notNullable();
+        table.timestamp('create_at').defaultTo(knex.fn.now());
+        table.charset('utf8');
+      });
+      yield app.mysql.query(userSchema.toString());
     }
   });
 };
