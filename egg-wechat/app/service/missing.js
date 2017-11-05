@@ -1,4 +1,7 @@
 'use strict';
+const knex = require('knex')({
+  client: 'mysql',
+});
 
 module.exports = app => {
   class Missing extends app.Service {
@@ -25,6 +28,7 @@ module.exports = app => {
     }
     * update(dates) {
       try {
+        console.log(dates);
         yield app.mysql.update('missing', dates);
       } catch (e) {
         this.ctx.logger.error(e);

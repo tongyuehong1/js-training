@@ -25,7 +25,7 @@ module.exports = app => {
     if (hasPhoto.length === 0) {
       const photoSchema = knex.schema.createTableIfNotExists('photo', function(table) {
         table.increments();
-        // table.string('wechat').notNullable();
+        table.string('wechat').notNullable();
         table.string('img').notNullable();
         table.timestamp('create_at').defaultTo(knex.fn.now());
         table.charset('utf8');
@@ -68,6 +68,30 @@ module.exports = app => {
         table.charset('utf8');
       });
       yield app.mysql.query(userSchema.toString());
+    }
+    const hasMemory = yield app.mysql.query(knex.schema.hasTable('memory').toString());
+    if (hasMemory.length === 0) {
+      const memorySchema = knex.schema.createTableIfNotExists('memory', function(table) {
+        table.increments();
+        table.string('wechat').notNullable();
+        table.string('img').notNullable();
+        table.string('title').notNullable();
+        table.text('essay').notNullable();
+        table.timestamp('create_at').defaultTo(knex.fn.now());
+        table.charset('utf8');
+      });
+      yield app.mysql.query(memorySchema.toString());
+    }
+    const hasTemporary = yield app.mysql.query(knex.schema.hasTable('temporary').toString());
+    if (hasTemporary.length === 0) {
+      const temporarySchema = knex.schema.createTableIfNotExists('temporary', function(table) {
+        table.increments();
+        table.string('wechat').notNullable();
+        table.string('anthor').notNullable();
+        table.timestamp('create_at').defaultTo(knex.fn.now());
+        table.charset('utf8');
+      });
+      yield app.mysql.query(temporarySchema.toString());
     }
   });
 };

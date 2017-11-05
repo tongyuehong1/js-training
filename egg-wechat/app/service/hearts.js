@@ -49,9 +49,7 @@ module.exports = app => {
     }
     * delete(_id) {
       try {
-        yield app.mysql.delete('write', {
-          where: { id: _id.id },
-        });
+        yield app.mysql.delete('write', _id);
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
