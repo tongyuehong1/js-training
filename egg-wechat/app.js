@@ -68,6 +68,7 @@ module.exports = app => {
         table.charset('utf8');
       });
       yield app.mysql.query(userSchema.toString());
+      yield ctx.helper.unique(app, 'user', 'wechat');
     }
     const hasMemory = yield app.mysql.query(knex.schema.hasTable('memory').toString());
     if (hasMemory.length === 0) {
@@ -86,12 +87,13 @@ module.exports = app => {
     if (hasTemporary.length === 0) {
       const temporarySchema = knex.schema.createTableIfNotExists('temporary', function(table) {
         table.increments();
-        table.string('wechat').notNullable();
-        table.string('anthor').notNullable();
+        table.string('wechat').notNullable().defaultTo('');
+        table.string('anthor').notNullable().defaultTo('');
         table.timestamp('create_at').defaultTo(knex.fn.now());
         table.charset('utf8');
       });
       yield app.mysql.query(temporarySchema.toString());
+      yield ctx.helper.unique(app, 'temporary', 'wechat');
     }
   });
 };

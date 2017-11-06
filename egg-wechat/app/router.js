@@ -2,6 +2,8 @@
 
 module.exports = app => {
   app.post('/essay', 'essay.essay');
+  app.post('/user', 'user.insert');
+  app.post('/userselect', 'user.select');
 
   app.post('/two/missinginsert', 'missing.insert');
   app.post('/two/missingselect', 'missing.select');
@@ -18,4 +20,7 @@ module.exports = app => {
 
   app.post('/memory/insert', 'memory.insert');
   app.post('/memory/select', 'memory.select');
+
+  app.post('/temporaryinsert', 'temporary.insert');
+  app.post('/temporaryselect', 'temporary.select');
 };
