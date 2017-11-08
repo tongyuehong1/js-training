@@ -2,9 +2,16 @@
 
 module.exports = app => {
   class Photo extends app.Service {
-    * insert(dates) {
+    * insert(things) {
       try {
-        yield app.mysql.insert('photo', dates);
+        const image = things.img;
+        const _wechat = things.wechat;
+        for (let i = 0; i < image.length; i++) {
+          yield app.mysql.insert('photo', {
+            wechat: _wechat,
+            img: image[i],
+          });
+        }
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
