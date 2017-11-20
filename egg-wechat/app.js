@@ -40,6 +40,7 @@ module.exports = app => {
         table.text('title').notNullable();
         table.text('brief').notNullable();
         table.text('essay').notNullable();
+        table.date('date').notNullable();
         table.timestamp('create_at').defaultTo(knex.fn.now());
         table.charset('utf8');
       });
