@@ -236,3 +236,6 @@ console.log('**********************includes*****************************');
 console.log(_.includes({ 'a': 1, 'b': 2 }, 1));
 console.log(_.includes([1, 2, 3],(1, 2)));
 console.log(_.includes([1, 2, 3],1, 2));
+
+
+console.log(_.toString([1, 2, 3, 'k']))
